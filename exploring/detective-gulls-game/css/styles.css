@@ -1,0 +1,124 @@
+/* styles.css - Game Styling and Layout */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #222;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Game Container */
+#gameContainer {
+  position: relative;
+  width: 90vw;
+  max-width: 1920px;
+  aspect-ratio: 16 / 9;
+  background-color: #000;
+  border: 3px solid #666;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Canvas */
+#gameCanvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: #87CEEB;
+  cursor: crosshair;
+}
+
+/* Instructions */
+#instructions {
+  color: #AAA;
+  font-size: 12px;
+  margin-top: 20px;
+  text-align: center;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+#instructions p {
+  margin: 8px 0;
+}
+
+#instructions strong {
+  color: #FFF;
+}
+
+/* Responsive Design */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  #gameContainer {
+    width: 95vw;
+  }
+  
+  #instructions {
+    font-size: 11px;
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 768px) {
+  #gameContainer {
+    width: 100vw;
+    max-width: 100%;
+    aspect-ratio: auto;
+    height: 100vh;
+    border: none;
+  }
+  
+  #gameCanvas {
+    width: 100vw;
+    height: 100vh;
+  }
+  
+  #instructions {
+    display: none; /* Hide on mobile */
+  }
+}
+
+/* High DPI screens */
+@media (min-width: 1921px) {
+  #gameContainer {
+    width: 1920px;
+    height: 1080px;
+  }
+}
+
+/* Prevent text selection on game */
+#gameCanvas {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* Loading state */
+.loading {
+  color: #FFF;
+  font-size: 18px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0.5; }
+}
